@@ -18,23 +18,23 @@ export function HeroSection() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-gradient-glass backdrop-blur-sm mb-8">
               <Zap className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground">
-                Automate Creator Marketing 10x Faster with AI
+                Streamline Creator Marketing with AI-Powered OS
               </span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
               <span className="bg-gradient-hero bg-clip-text text-transparent">
-                Creator Marketing
+                The Ultimate Creator
               </span>
               <br />
-              <span className="text-foreground">Made Simple</span>
+              <span className="text-foreground">Marketing OS</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl lg:max-w-none leading-relaxed">
-              Discover creators, generate content, and launch campaigns with AI-powered automation. 
-              From outreach to analytics, we handle it all.
+              Streamline your entire creator marketing workflow with AI-powered content generation, 
+              multi-platform posting, and campaign management in one unified OS.
             </p>
 
             {/* CTA Buttons */}
@@ -87,7 +87,7 @@ export function HeroSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-brand">
               <img 
                 src={heroImage} 
-                alt="CreatorFlow AI Dashboard - AI-powered creator marketing automation" 
+                alt="InfluenceOS Dashboard - AI-powered creator marketing operating system" 
                 className="w-full h-auto object-cover"
               />
               {/* Overlay gradient */}
