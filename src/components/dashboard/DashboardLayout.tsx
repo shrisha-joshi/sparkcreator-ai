@@ -27,6 +27,7 @@ const sidebarItems = [
   { name: "Creator Discovery", href: "/dashboard/creators", icon: Users },
   { name: "Campaign Manager", href: "/dashboard/campaigns", icon: Target },
   { name: "Profile & Billing", href: "/dashboard/profile", icon: User },
+  { name: "Admin Panel", href: "/dashboard/admin", icon: Settings },
 ];
 
 export function DashboardLayout() {

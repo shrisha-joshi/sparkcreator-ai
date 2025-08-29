@@ -14,7 +14,417 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ai_usage: {
+        Row: {
+          cost: number | null
+          created_at: string
+          id: string
+          metadata: Json | null
+          tokens_used: number | null
+          usage_type: string
+          user_id: string
+        }
+        Insert: {
+          cost?: number | null
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          tokens_used?: number | null
+          usage_type: string
+          user_id: string
+        }
+        Update: {
+          cost?: number | null
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          tokens_used?: number | null
+          usage_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      campaign_creators: {
+        Row: {
+          agreement_terms: Json | null
+          campaign_id: string
+          created_at: string
+          creator_id: string
+          id: string
+          payment_amount: number | null
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          agreement_terms?: Json | null
+          campaign_id: string
+          created_at?: string
+          creator_id: string
+          id?: string
+          payment_amount?: number | null
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          agreement_terms?: Json | null
+          campaign_id?: string
+          created_at?: string
+          creator_id?: string
+          id?: string
+          payment_amount?: number | null
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "campaign_creators_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "campaign_creators_creator_id_fkey"
+            columns: ["creator_id"]
+            isOneToOne: false
+            referencedRelation: "creators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      campaigns: {
+        Row: {
+          budget: number | null
+          created_at: string
+          description: string | null
+          end_date: string | null
+          id: string
+          performance_metrics: Json | null
+          start_date: string | null
+          status: string | null
+          target_audience: Json | null
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          budget?: number | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          id?: string
+          performance_metrics?: Json | null
+          start_date?: string | null
+          status?: string | null
+          target_audience?: Json | null
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          budget?: number | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          id?: string
+          performance_metrics?: Json | null
+          start_date?: string | null
+          status?: string | null
+          target_audience?: Json | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      content_assets: {
+        Row: {
+          ai_caption: string | null
+          created_at: string
+          file_size: number | null
+          file_type: string
+          file_url: string
+          hashtags: string[] | null
+          id: string
+          metadata: Json | null
+          status: string | null
+          title: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ai_caption?: string | null
+          created_at?: string
+          file_size?: number | null
+          file_type: string
+          file_url: string
+          hashtags?: string[] | null
+          id?: string
+          metadata?: Json | null
+          status?: string | null
+          title?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ai_caption?: string | null
+          created_at?: string
+          file_size?: number | null
+          file_type?: string
+          file_url?: string
+          hashtags?: string[] | null
+          id?: string
+          metadata?: Json | null
+          status?: string | null
+          title?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      creators: {
+        Row: {
+          bio: string | null
+          contact_email: string | null
+          created_at: string
+          engagement_rate: number | null
+          followers_count: number | null
+          handle: string
+          id: string
+          location: string | null
+          name: string
+          niche: string[] | null
+          platform: string
+          profile_image_url: string | null
+          rates: Json | null
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          bio?: string | null
+          contact_email?: string | null
+          created_at?: string
+          engagement_rate?: number | null
+          followers_count?: number | null
+          handle: string
+          id?: string
+          location?: string | null
+          name: string
+          niche?: string[] | null
+          platform: string
+          profile_image_url?: string | null
+          rates?: Json | null
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          bio?: string | null
+          contact_email?: string | null
+          created_at?: string
+          engagement_rate?: number | null
+          followers_count?: number | null
+          handle?: string
+          id?: string
+          location?: string | null
+          name?: string
+          niche?: string[] | null
+          platform?: string
+          profile_image_url?: string | null
+          rates?: Json | null
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          role: string | null
+          subscription_status: string | null
+          subscription_tier: string | null
+          updated_at: string
+          user_id: string
+          username: string | null
+          website: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          subscription_status?: string | null
+          subscription_tier?: string | null
+          updated_at?: string
+          user_id: string
+          username?: string | null
+          website?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          subscription_status?: string | null
+          subscription_tier?: string | null
+          updated_at?: string
+          user_id?: string
+          username?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
+      social_accounts: {
+        Row: {
+          access_token: string | null
+          account_data: Json | null
+          account_handle: string
+          created_at: string
+          expires_at: string | null
+          id: string
+          is_active: boolean | null
+          platform: string
+          refresh_token: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          access_token?: string | null
+          account_data?: Json | null
+          account_handle: string
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          platform: string
+          refresh_token?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          access_token?: string | null
+          account_data?: Json | null
+          account_handle?: string
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          platform?: string
+          refresh_token?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      social_posts: {
+        Row: {
+          campaign_id: string | null
+          caption: string
+          content_asset_id: string | null
+          created_at: string
+          hashtags: string[] | null
+          id: string
+          performance_data: Json | null
+          platforms: string[] | null
+          scheduled_for: string | null
+          status: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          campaign_id?: string | null
+          caption: string
+          content_asset_id?: string | null
+          created_at?: string
+          hashtags?: string[] | null
+          id?: string
+          performance_data?: Json | null
+          platforms?: string[] | null
+          scheduled_for?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          campaign_id?: string | null
+          caption?: string
+          content_asset_id?: string | null
+          created_at?: string
+          hashtags?: string[] | null
+          id?: string
+          performance_data?: Json | null
+          platforms?: string[] | null
+          scheduled_for?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "social_posts_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "social_posts_content_asset_id_fkey"
+            columns: ["content_asset_id"]
+            isOneToOne: false
+            referencedRelation: "content_assets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      testimonials: {
+        Row: {
+          avatar_url: string | null
+          company: string | null
+          content: string
+          created_at: string
+          id: string
+          is_approved: boolean | null
+          name: string
+          rating: number | null
+          title: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          company?: string | null
+          content: string
+          created_at?: string
+          id?: string
+          is_approved?: boolean | null
+          name: string
+          rating?: number | null
+          title?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          company?: string | null
+          content?: string
+          created_at?: string
+          id?: string
+          is_approved?: boolean | null
+          name?: string
+          rating?: number | null
+          title?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
