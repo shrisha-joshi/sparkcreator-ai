@@ -397,3 +397,5 @@ export function CaptionWriter() {
     </div>
   );
 }
+
+export default CaptionWriter;

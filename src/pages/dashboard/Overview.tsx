@@ -274,3 +274,5 @@ export function Overview() {
     </div>
   );
 }
+
+export default Overview;
